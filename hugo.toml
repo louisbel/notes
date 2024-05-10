@@ -1,7 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Louis Belpaire'
-theme = 'Typo'
+theme = 'typo'
 
 # Disable tags, actually, they are rendered as a list, but the idea is to disable them.
 disableKinds = ['taxonomy']
