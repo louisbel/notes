@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Covid impact on the DC commute | Louis Belpaire</title>
+
+
+<link rel="stylesheet" href="/assets/combined.min.01d9aede235af228fdb2da655899ae1ba335a94df8e5898e89f83ae5dfe2a5ac.css" media="all">
+
+
+
+
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-xxxxxxxxxx"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-xxxxxxxxxx');
+        }
+      </script>
+    
+  
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Louis Belpaire</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/posts">
+                /posts
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/resume">
+                /resume
+            </a>
+        </p>
+        
+        
+    </div>
+
+</div>
+    </header>
+
+    <main class="main">
+      
+
+
+
+<div  class="autonumber" >
+
+  <div class=" single-intro-container">
+
+    
+
+    <h1 class="single-title">Covid impact on the DC commute</h1>
+    
+    <p class="single-summary">Measuring the impact of Covid on remote work with Google Analytics</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2020-03-16T00:00:00&#43;00:00">March 16, 2020</time>
+      
+
+      
+      -
+      1 min
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>Has the Washington DC metro area transitioned to working from home?</p>
+<p>Location analysis of 500,000 DMV users between 9 am and 5 pm this Monday, March 16 2020, compared to last Monday, March 9 2020.</p>
+<p><strong>92% of workday web traffic moved away from DC; Arlington lost 66% of its traffic. In turn, Tysons, Rockville and Frederick &lsquo;gained&rsquo; most users.</strong></p>
+<p>Useful to know as part of a campaign targeting strategy, also useful if you&rsquo;re a local public health official.</p>
+<p>Google Analytics data queried with Supermetrics &amp; plotted with Geolitics.</p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /images/Covid-before.png">
+</figure></p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /images/Covid-after.png">
+</figure></p>
+
+    
+<script src="https://giscus.app/client.js"
+        data-repo=""
+        data-repo-id=""
+        data-category=""
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  </div>
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>
