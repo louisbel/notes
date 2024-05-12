@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Louis Belpaire</title>
+    <link>https://frkid.github.io/lou/</link>
+    <description>Recent content in Home on Louis Belpaire</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://frkid.github.io/lou/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buying the dip</title>
+      <link>https://frkid.github.io/lou/posts/buying-the-dip/</link>
+      <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/lou/posts/buying-the-dip/</guid>
+      <description>When should marketers buy META or GOOG?</description>
+    </item>
+    <item>
+      <title>CJR Report: How AI retools Journalism</title>
+      <link>https://frkid.github.io/lou/posts/ai-in-the-news/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/lou/posts/ai-in-the-news/</guid>
+      <description>What can we learn from 134 interviews of news workers on the early impact of AI?</description>
+    </item>
+    <item>
+      <title>Resume</title>
+      <link>https://frkid.github.io/lou/resume/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/lou/resume/</guid>
+      <description>Experience Silverback Strategies - 01/2013 - 06/2023&#xA;Head of Media, Creative &amp;amp; Digital - COO Director of Paid Media &amp;amp; Analytics Paid Media &amp;amp; Analytics Manager Groupon - 08/2011 – 08/2012&#xA;Online Marketing Analyst Education ESCE - Master’s in marketing&#xA;HTW Berlin - Student Exchange Program&#xA;Skills Marketing Strategy • Media Planning • Lead Generation • Qualitative Research• Ecommerce Marketing • Budgeting • Storytelling • Marktech integration • Campaign Reporting • Data Analysis • Dashboarding • Campaign Attribution • Conversion tracking • Creative planning • Social Media Marketing • Creative Best Practices</description>
+    </item>
+    <item>
+      <title>Youtube blocks the ad blockers</title>
+      <link>https://frkid.github.io/lou/posts/youtube-ad-block/</link>
+      <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/lou/posts/youtube-ad-block/</guid>
+      <description>A play for ad revenue or Youtube subscribers?</description>
+    </item>
+    <item>
+      <title>Covid impact on the DC commute</title>
+      <link>https://frkid.github.io/lou/posts/covid-impact-on-dc-commuting/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/lou/posts/covid-impact-on-dc-commuting/</guid>
+      <description>Measuring the impact of Covid on remote work with Google Analytics</description>
+    </item>
+  </channel>
+</rss>
