@@ -2,38 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Louis Belpaire</title>
-    <link>https://louisbel.github.io/notes/posts/</link>
+    <link>http://localhost:1313/notes/posts/</link>
     <description>Recent content in Posts on Louis Belpaire</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://louisbel.github.io/notes/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/notes/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Best practices for SAAS landing pages</title>
+      <link>http://localhost:1313/notes/posts/b2b-saas/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/posts/b2b-saas/</guid>
+      <description>What should be on a top performing SAAS landing page?</description>
+    </item>
     <item>
       <title>Buying the dip</title>
-      <link>https://louisbel.github.io/notes/posts/buying-the-dip/</link>
+      <link>http://localhost:1313/notes/posts/buying-the-dip/</link>
       <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://louisbel.github.io/notes/posts/buying-the-dip/</guid>
+      <guid>http://localhost:1313/notes/posts/buying-the-dip/</guid>
       <description>When should marketers buy META or GOOG?</description>
     </item>
     <item>
       <title>CJR Report: How AI retools Journalism</title>
-      <link>https://louisbel.github.io/notes/posts/ai-in-the-news/</link>
+      <link>http://localhost:1313/notes/posts/ai-in-the-news/</link>
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://louisbel.github.io/notes/posts/ai-in-the-news/</guid>
+      <guid>http://localhost:1313/notes/posts/ai-in-the-news/</guid>
       <description>What can we learn from 134 interviews of news workers on the early impact of AI?</description>
     </item>
     <item>
       <title>Youtube blocks the ad blockers</title>
-      <link>https://louisbel.github.io/notes/posts/youtube-ad-block/</link>
+      <link>http://localhost:1313/notes/posts/youtube-ad-block/</link>
       <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://louisbel.github.io/notes/posts/youtube-ad-block/</guid>
+      <guid>http://localhost:1313/notes/posts/youtube-ad-block/</guid>
       <description>A play for ad revenue or Youtube subscribers?</description>
     </item>
     <item>
       <title>Covid impact on the DC commute</title>
-      <link>https://louisbel.github.io/notes/posts/covid-impact-on-dc-commuting/</link>
+      <link>http://localhost:1313/notes/posts/covid-impact-on-dc-commuting/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://louisbel.github.io/notes/posts/covid-impact-on-dc-commuting/</guid>
+      <guid>http://localhost:1313/notes/posts/covid-impact-on-dc-commuting/</guid>
       <description>Measuring the impact of Covid on remote work with Google Analytics</description>
     </item>
   </channel>
