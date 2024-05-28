@@ -6,8 +6,22 @@
     <description>Recent content in Posts on Louis Belpaire</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://louisbel.github.io/notes/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exploring Media Mix Modeling with Robyn and GPT-4o</title>
+      <link>https://louisbel.github.io/notes/posts/lululemon-mmm-robyn/</link>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://louisbel.github.io/notes/posts/lululemon-mmm-robyn/</guid>
+      <description>Can GPT assist with Media Mix modeling in R?</description>
+    </item>
+    <item>
+      <title>Exploring Media Mix Modeling with Robyn and GPT-4o</title>
+      <link>https://louisbel.github.io/notes/posts/mmm-robyn/</link>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://louisbel.github.io/notes/posts/mmm-robyn/</guid>
+      <description>Can GPT assist with Media Mix modeling in R?</description>
+    </item>
     <item>
       <title>Best practices for SAAS landing pages</title>
       <link>https://louisbel.github.io/notes/posts/b2b-saas/</link>
