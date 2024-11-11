@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Overlaying KPIs on Meta video ads | Louis Belpaire</title>
+
+
+<link rel="stylesheet" href="/notes/assets/combined.min.0ad6409981219329fd7098dd52659674a36c4518c21ee24e28cf0a7f3327c5cc.css" media="all">
+
+
+
+
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2FPL4RJD1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-F2FPL4RJD1');
+        }
+      </script>
+    
+  
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Louis Belpaire</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/notes">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/posts">
+                /posts
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/resume">
+                /resume
+            </a>
+        </p>
+        
+        
+    </div>
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+<div >
+
+  <div class=" single-intro-container">
+
+    
+
+    <h1 class="single-title">Overlaying KPIs on Meta video ads</h1>
+    
+    <p class="single-summary">Combining the power of Supermetrics with open source libraries to overlay KPIs on video frames.</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2024-11-04T00:00:00&#43;00:00">November 4, 2024</time>
+      
+
+      
+      -
+      3 min
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p><strong>The problem</strong>:</p>
+<p>Out of the box video metrics in Meta (Video Plays, 3 second video plays, % of 50% Play, % of 100% Play) or custom metrics (scroll stopping rate: 3 second video plays/ video plays) are helpful to analyze video performance.</p>
+<p>However, even with access to the data, <strong>it remains challenging for Creative teams to contextualize performance</strong>. Doing so requires back and forth between the performance data and videos.</p>
+<p><strong>Solution</strong>:</p>
+<p>To make performance insights more actionable to creative teams, <strong>the goal is to overlay performance metrics directly on the video</strong>, making it easy to understand how changes to the ad’s narrative arc impact performance across ad variations.</p>
+<p>Specifically, we are looking to draw a play curve of the ad and to overlay the % of users that are still watching the video (retention %) at specific time increments, positioning the metric on the Y axis based on view retention and on the X axis based on video elapsed time.</p>
+<p>We’re using the latest iPhone 16 with Apple Intelligence ad as an example.</p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/AppleAd_Metrics2.jpg">
+</figure></p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/AppleAd_Metrics3.jpg">
+</figure></p>
+<p>To do this, we need:</p>
+<ul>
+<li><strong><a href="https://www.supermetrics.com">Supermetrics</a></strong>: to query video performance data from the Meta Ads API</li>
+<li><strong><a href="https://www.ffmpeg.org/">FFmpeg</a></strong>: to generate still frames from the video</li>
+<li><strong><a href="http://www.gnuplot.info/">GNUplot</a></strong>: to generate the view rate by frame &amp; the play curve</li>
+</ul>
+<h2 id="step-1-retrieving-the-play-curve-data-with-supermetrics">Step 1: Retrieving the play curve data with Supermetrics</h2>
+<p>Using the Supermetrics add-on for Google sheets, we configure the following API query:</p>
+<ul>
+<li>Dimension:  Campaign Name, Ad set Name, Ad Name</li>
+<li>Metrics: CTR, Conversion Rate, average play time, play curve at 0,1,2,3,4,5&hellip; seconds</li>
+</ul>
+<p>We then set the query to update automatically (once a week or more frequently), update the permissions to &ldquo;access with the link&rdquo; and update the google_sheet_url variable with the sheet url directly in the script.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>google_sheet_url<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;[FILE-URL]/pub?gid=0&amp;single=true&amp;output=csv&#34;</span>
+</span></span></code></pre></div><h2 id="step-2-setting-up-a-local-environment">Step 2: Setting up a local environment</h2>
+<ul>
+<li>Install FFmpeg &amp; GNUplot via <strong><a href="https://brew.sh/">Homebrew</a></strong> in the MacOS Terminal</li>
+<li>Place the script in a local folder named “FFmpeg”</li>
+<li>Place video ads in the folder, following the same naming conventions as the ad unit names used in Meta</li>
+</ul>
+<h2 id="step-3-configuring-the-script">Step 3: Configuring the script</h2>
+<p>The script is available on <strong><a href="https://github.com/louisbel/tools.git">GitHub</a></strong>  and can handle the following customizations:</p>
+<ul>
+<li>Retrieving data from a Google Sheet, or a manual file</li>
+<li>Setting different font sizes and colors for KPIs</li>
+<li>Customizing the positioning of KPIs</li>
+<li>Generating the summary image with or without the play curve</li>
+<li>Generating an animated gif recap</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#0080ff;font-style:italic"># Configurable Settings</span>
+</span></span><span style="display:flex;"><span>font_file<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;${input_folder}/Roboto.ttf&#34;</span>  <span style="color:#0080ff;font-style:italic"># Path to the font file</span>
+</span></span><span style="display:flex;"><span>frames_per_row<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">4</span>                        <span style="color:#0080ff;font-style:italic"># Number of frames per row in the final montage</span>
+</span></span><span style="display:flex;"><span>output_width<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">900</span>                        <span style="color:#0080ff;font-style:italic"># Assumed output width for positioning</span>
+</span></span><span style="display:flex;"><span>output_height<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">1700</span>                      <span style="color:#0080ff;font-style:italic"># Assumed output height for positioning</span>
+</span></span><span style="display:flex;"><span>summary_metrics_y_offset_start<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">1000</span>     <span style="color:#0080ff;font-style:italic"># Initial y-offset for summary metrics</span>
+</span></span><span style="display:flex;"><span>font_summary_size<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">60</span>                    <span style="color:#0080ff;font-style:italic"># Font size for summary metrics</span>
+</span></span><span style="display:flex;"><span>summary_font_color<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;white&#34;</span>              <span style="color:#0080ff;font-style:italic"># Font color for text</span>
+</span></span><span style="display:flex;"><span>timestamp_font_size<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">80</span>                  <span style="color:#0080ff;font-style:italic"># Font size for timestamp text</span>
+</span></span><span style="display:flex;"><span>timestamp_font_color<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;white&#34;</span>            <span style="color:#0080ff;font-style:italic"># Font color for timestamp</span>
+</span></span><span style="display:flex;"><span>position_timestamp_x<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;0.75&#34;</span>             <span style="color:#0080ff;font-style:italic"># Timestamp horizontal position as a percentage of width</span>
+</span></span><span style="display:flex;"><span>position_timestamp_y<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;0.1&#34;</span>              <span style="color:#0080ff;font-style:italic"># Timestamp vertical position as a percentage of height</span>
+</span></span><span style="display:flex;"><span>play_metric_font_size<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">120</span>               <span style="color:#0080ff;font-style:italic"># Font size for play metrics</span>
+</span></span><span style="display:flex;"><span>play_metric_font_color<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;orange&#34;</span>         <span style="color:#0080ff;font-style:italic"># Font color for play metrics</span>
+</span></span><span style="display:flex;"><span>background_color<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;black@0.7&#34;</span>            <span style="color:#0080ff;font-style:italic"># Background box color and transparency for all metrics and text</span>
+</span></span><span style="display:flex;"><span>display_play_curve<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;Y&#34;</span>                  <span style="color:#0080ff;font-style:italic"># Display play curve graph (Y/N)</span>
+</span></span><span style="display:flex;"><span>position_playcurve_x<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">50</span>                 <span style="color:#0080ff;font-style:italic"># X position of play curve on first frame</span>
+</span></span><span style="display:flex;"><span>position_playcurve_y<span style="color:#2c5dcd">=</span><span style="color:#5918bb;font-weight:bold">800</span>                <span style="color:#0080ff;font-style:italic"># Y position of play curve on first frame</span>
+</span></span><span style="display:flex;"><span>create_gif<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;Y&#34;</span>                          <span style="color:#0080ff;font-style:italic"># Set to &#34;Y&#34; to create a GIF, &#34;N&#34; to skip GIF creation</span>
+</span></span></code></pre></div><h2 id="step-4-running-the-script">Step 4: Running the script</h2>
+<p>Using the Terminal, we navigate to the local folder:</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Command<span style="color:#2c5dcd">:</span> cd Users<span style="color:#2c5dcd">/</span>MYNAME<span style="color:#2c5dcd">/</span>FFmpeg
+</span></span></code></pre></div><p>And run the script:</p>
+<pre tabindex="0"><code class="language-rome" data-lang="rome">Command: ./process_video.sh.
+</code></pre><p>The script will output the video KPI overview and the animated gif in the overviews folder.</p>
+<hr>
+<h2 id="future-improvement-ideas">Future improvement ideas:</h2>
+<ul>
+<li>Ranking the variant based on scroll stopping rate vs other variants in the same batch</li>
+<li>Scheduling an automated script run to automatically update results</li>
+<li>Moving the output images to a shared Drive for easier collaboration</li>
+</ul>
+
+    
+<script src="https://giscus.app/client.js"
+        data-repo=""
+        data-repo-id=""
+        data-category=""
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  </div>
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>
