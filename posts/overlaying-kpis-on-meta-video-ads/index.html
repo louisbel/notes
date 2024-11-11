@@ -93,7 +93,7 @@
 
     <h1 class="single-title">Overlaying KPIs on Meta video ads</h1>
     
-    <p class="single-summary">Combining the power of Supermetrics with open source libraries to overlay KPIs on video frames.</p>
+    <p class="single-summary">Combining the power of Supermetrics with open source libraries to overlay KPIs on video frames</p>
     
 
     
@@ -107,7 +107,7 @@
 
       
       -
-      3 min
+      4 min
       
     </p>
 
@@ -122,11 +122,12 @@
   <div class="single-content">
     <p><strong>The problem</strong>:</p>
 <p>Out of the box video metrics in Meta (Video Plays, 3 second video plays, % of 50% Play, % of 100% Play) or custom metrics (scroll stopping rate: 3 second video plays/ video plays) are helpful to analyze video performance.</p>
-<p>However, even with access to the data, <strong>it remains challenging for Creative teams to contextualize performance</strong>. Doing so requires back and forth between the performance data and videos.</p>
+<p>However, even with access to the data, <strong>it remains challenging for creative teams to contextualize performance</strong>. Doing so requires back and forth between the performance data and videos.</p>
 <p><strong>Solution</strong>:</p>
 <p>To make performance insights more actionable to creative teams, <strong>the goal is to overlay performance metrics directly on the video</strong>, making it easy to understand how changes to the ad’s narrative arc impact performance across ad variations.</p>
 <p>Specifically, we are looking to draw a play curve of the ad and to overlay the % of users that are still watching the video (retention %) at specific time increments, positioning the metric on the Y axis based on view retention and on the X axis based on video elapsed time.</p>
-<p>We’re using the latest iPhone 16 with Apple Intelligence ad as an example.</p>
+<p>We’re using the latest iPhone 16 with Apple Intelligence ad and simulated data as an example.</p>
+<p>Given <a href="https://www.youtube.com/watch?v=3m0MoYKwVTM&amp;t">how funny the ad was</a> and how well it was edited for Social Media ads, it&rsquo;s likely it performed well!</p>
 <p>
 
 
@@ -153,7 +154,7 @@
 <li>Dimension:  Campaign Name, Ad set Name, Ad Name</li>
 <li>Metrics: CTR, Conversion Rate, average play time, play curve at 0,1,2,3,4,5&hellip; seconds</li>
 </ul>
-<p>We then set the query to update automatically (once a week or more frequently), update the permissions to &ldquo;access with the link&rdquo; and update the google_sheet_url variable with the sheet url directly in the script.</p>
+<p>We then set the query to update automatically (once a week or more frequently), update the permissions to &ldquo;access with the link&rdquo;, publish as CSV and update the google_sheet_url variable with the sheet url directly in the script.</p>
 <div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>google_sheet_url<span style="color:#2c5dcd">=</span><span style="color:#0c6">&#34;[FILE-URL]/pub?gid=0&amp;single=true&amp;output=csv&#34;</span>
 </span></span></code></pre></div><h2 id="step-2-setting-up-a-local-environment">Step 2: Setting up a local environment</h2>
 <ul>
@@ -192,15 +193,16 @@
 </span></span></code></pre></div><h2 id="step-4-running-the-script">Step 4: Running the script</h2>
 <p>Using the Terminal, we navigate to the local folder:</p>
 <div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Command<span style="color:#2c5dcd">:</span> cd Users<span style="color:#2c5dcd">/</span>MYNAME<span style="color:#2c5dcd">/</span>FFmpeg
-</span></span></code></pre></div><p>And run the script:</p>
-<pre tabindex="0"><code class="language-rome" data-lang="rome">Command: ./process_video.sh.
-</code></pre><p>The script will output the video KPI overview and the animated gif in the overviews folder.</p>
+</span></span></code></pre></div><p>Give the script executing permission, and run the script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Command<span style="color:#2c5dcd">:</span> chmod <span style="color:#2c5dcd">+</span>x process_video.sh
+</span></span><span style="display:flex;"><span>Command<span style="color:#2c5dcd">:</span> ./process_video.sh.
+</span></span></code></pre></div><p>The script will output the video KPI overview and the animated gif in the overviews folder.</p>
 <hr>
 <h2 id="future-improvement-ideas">Future improvement ideas:</h2>
 <ul>
 <li>Ranking the variant based on scroll stopping rate vs other variants in the same batch</li>
-<li>Scheduling an automated script run to automatically update results</li>
-<li>Moving the output images to a shared Drive for easier collaboration</li>
+<li>Scheduling an automated script run to automatically generate updated overviews</li>
+<li>Have the script move the output overview images to a shared Drive for easier collaboration</li>
 </ul>
 
     
