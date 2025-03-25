@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 baseURL = 'https://louisbel.github.io/notes/'
 relativeURLs = false
+=======
+baseURL = 'https://frkid.github.io/lou/'
+>>>>>>> eeedce7bc0243b0fba762048b3ba6f9f7b3a8d72
 languageCode = 'en-us'
 title = 'Louis Belpaire'
 theme = 'Typo'
@@ -72,3 +76,10 @@ style = 'rainbow_dash'
 [[module.mounts]]
 source = 'static'
 target = 'static'
+<<<<<<< HEAD
+=======
+
+[[module.mounts]]
+source = 'images'
+
+>>>>>>> eeedce7bc0243b0fba762048b3ba6f9f7b3a8d72

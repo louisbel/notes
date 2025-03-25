@@ -2,6 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Louis Belpaire</title>
+<<<<<<< HEAD
     <link>http://localhost:1313/notes/posts/</link>
     <description>Recent content in Posts on Louis Belpaire</description>
     <generator>Hugo</generator>
@@ -34,13 +35,32 @@
       <link>http://localhost:1313/notes/posts/buying-the-dip/</link>
       <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/posts/buying-the-dip/</guid>
+=======
+    <link>https://frkid.github.io/posts/</link>
+    <description>Recent content in Posts on Louis Belpaire</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 May 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://frkid.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buying the dip</title>
+      <link>https://frkid.github.io/posts/buying-the-dip/</link>
+      <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/posts/buying-the-dip/</guid>
+>>>>>>> eeedce7bc0243b0fba762048b3ba6f9f7b3a8d72
       <description>When should marketers buy META or GOOG?</description>
     </item>
     <item>
       <title>CJR Report: How AI retools Journalism</title>
+<<<<<<< HEAD
       <link>http://localhost:1313/notes/posts/ai-in-the-news/</link>
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/posts/ai-in-the-news/</guid>
+=======
+      <link>https://frkid.github.io/posts/ai-in-the-news/</link>
+      <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/posts/ai-in-the-news/</guid>
+>>>>>>> eeedce7bc0243b0fba762048b3ba6f9f7b3a8d72
       <description>What can we learn from 134 interviews of news workers on the early impact of AI?</description>
     </item>
     <item>
@@ -52,16 +72,28 @@
     </item>
     <item>
       <title>Youtube blocks the ad blockers</title>
+<<<<<<< HEAD
       <link>http://localhost:1313/notes/posts/youtube-ad-block/</link>
       <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/posts/youtube-ad-block/</guid>
+=======
+      <link>https://frkid.github.io/posts/youtube-ad-block/</link>
+      <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/posts/youtube-ad-block/</guid>
+>>>>>>> eeedce7bc0243b0fba762048b3ba6f9f7b3a8d72
       <description>A play for ad revenue or Youtube subscribers?</description>
     </item>
     <item>
       <title>Covid impact on the DC commute</title>
+<<<<<<< HEAD
       <link>http://localhost:1313/notes/posts/covid-impact-on-dc-commuting/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/notes/posts/covid-impact-on-dc-commuting/</guid>
+=======
+      <link>https://frkid.github.io/posts/covid-impact-on-dc-commuting/</link>
+      <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+      <guid>https://frkid.github.io/posts/covid-impact-on-dc-commuting/</guid>
+>>>>>>> eeedce7bc0243b0fba762048b3ba6f9f7b3a8d72
       <description>Measuring the impact of Covid on remote work with Google Analytics</description>
     </item>
   </channel>
