@@ -13,7 +13,7 @@ Disclaimer: this is not financial advice. Multiple studies have demonstrated tha
 
 # 2022: Apple's ITP: the end of Meta?
 
-![image](/images/Meta.png)
+![image](/notes/images/Meta.png)
 
 
 **09/01/2021 - 379.59 - 11/01/2022 - 94.33**
@@ -29,7 +29,7 @@ However, marketers who were using Facebook Ads Manager and optimizing campaigns 
 
 # 2023: ChatGPT: a Google Search killer?
 
-![image](/images/Goog.png)
+![image](/notes/images/Goog.png)
 
 **Apr 1, 2022 - 140.01 - Mar 1, 2023 - 90.16**
 **=> 36% drop**

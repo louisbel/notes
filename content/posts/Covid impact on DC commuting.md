@@ -12,15 +12,17 @@ Has the Washington DC metro area transitioned to working from home?
 
 Location analysis of 500,000 DMV users between 9 am and 5 pm this Monday, March 16 2020, compared to last Monday, March 9 2020. 
 
-**92% of workday web traffic moved away from DC; Arlington lost 66% of its traffic. In turn, Tysons, Rockville and Frederick 'gained' most users.** 
-
-Useful to know as part of a campaign targeting strategy, also useful if you're a local public health official.
+**92% of workday web traffic moved away from DC; Arlington lost 66% of its traffic. In turn, Tysons VA, Rockville MD and Frederick MD 'gained' most users.** 
 
 Google Analytics data queried with Supermetrics & plotted with Geolitics.
 
-![image](/images/Covid-before.png)
+# Before
 
-![image](/images/Covid-after.png)
+![image](/notes/images/Covid-before.png)
+
+# After 
+
+![image](/notes/images/Covid-after.png)
 
 
 

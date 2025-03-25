@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WS UTM Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[readonly], select[readonly] {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        .generated-url {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            background-color: #28a745;
+            margin-top: 10px;
+        }
+
+        .copy-button:hover {
+            background-color: #218838;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔗 WS UTM Builder</h1>
+    <form id="utmForm">
+        <div class="form-group">
+            <label for="channel">Select Channel:</label>
+            <select id="channel" onchange="updateForm()">
+                <option value="" disabled selected>Select a channel</option>
+                <option value="google_ad">Google Ad</option>
+                <option value="meta_ad">Meta Ad</option>
+                <option value="bing_ad">Bing Ad</option>
+                <option value="fb_ig_post">FB/IG Post</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="baseURLGroup">
+            <label for="baseURL">Base URL:</label>
+            <input type="url" id="baseURL" placeholder="https://example.com" required>
+        </div>
+
+        <div class="form-group" id="utmSourceGroup">
+            <label for="utmSource">UTM Source:</label>
+            <input type="text" id="utmSource">
+        </div>
+
+        <div class="form-group" id="utmCampaignGroup">
+            <label for="utmCampaign">UTM Campaign:</label>
+            <input type="text" id="utmCampaign">
+        </div>
+
+        <div class="form-group" id="utmMediumGroup">
+            <label for="utmMedium">UTM Medium:</label>
+            <input type="text" id="utmMedium">
+        </div>
+
+        <div class="form-group" id="utmContentGroup">
+            <label for="utmContent">UTM Content (optional):</label>
+            <input type="text" id="utmContent">
+        </div>
+
+        <div class="form-group" id="utmTermGroup">
+            <label for="utmTerm">UTM Term (optional):</label>
+            <input type="text" id="utmTerm">
+        </div>
+
+        <div class="form-group" id="utmSourcePlatformGroup">
+            <label for="utmSourcePlatform">UTM Source Platform (optional):</label>
+            <input type="text" id="utmSourcePlatform">
+        </div>
+
+        <button type="button" onclick="generateURL()">Generate URL</button>
+    </form>
+
+    <h2>Generated URL</h2>
+    <p id="generatedURL" class="generated-url">Your generated URL will appear here.</p>
+    <button type="button" class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+
+    <script>
+        const options = {
+            google_ad: {
+                utmSource: { value: "google", mode: "lock" },
+                utmCampaign: { value: "bcm_ggl_hps_nb_student", mode: "edit" },
+                utmMedium: { value: "paid-search", mode: "lock" },
+                utmContent: { value: "{adgroupid}", mode: "edit" },
+                utmTerm: { value: "{keyword}", mode: "lock" },
+                utmSourcePlatform: { value: null, mode: "disabled" }
+            },
+            meta_ad: {
+                utmSource: { value: "meta", mode: "lock" },
+                utmCampaign: { value: "{campaign.name}", mode: "lock" },
+                utmMedium: { value: "paid-social", mode: "lock" },
+                utmContent: { value: "{ad.name}", mode: "lock" },
+                utmTerm: { value: "{adset.name}", mode: "lock" },
+                utmSourcePlatform: { value: "{{site_source_name}}", mode: "lock" }
+            },
+            bing_ad: {
+                utmSource: { value: "bing", mode: "lock" },
+                utmCampaign: { value: "bcm_ggl_hps_nb_student", mode: "edit" },
+                utmMedium: { value: "paid-search", mode: "lock" },
+                utmContent: { value: "{adgroupid}", mode: "edit" },
+                utmTerm: { value: "{keyword}", mode: "lock" },
+                utmSourcePlatform: { value: null, mode: "disabled" }
+            },
+            fb_ig_post: {
+                utmSource: { value: "meta", mode: "lock" },
+                utmCampaign: { value: "deadline_reminder", mode: "edit" },
+                utmMedium: { value: "social", mode: "lock" },
+                utmContent: { value: "Carnegie1", mode: "edit" },
+                utmTerm: { value: "", mode: "disabled" },
+                utmSourcePlatform: { value: "social_meta", mode: "lock" }
+            }
+        };
+
+        function updateForm() {
+            const selectedChannel = document.getElementById('channel').value;
+
+            const fields = ["utmSource", "utmCampaign", "utmMedium", "utmContent", "utmTerm", "utmSourcePlatform"];
+            const fieldGroups = {
+                utmSource: "utmSourceGroup",
+                utmCampaign: "utmCampaignGroup",
+                utmMedium: "utmMediumGroup",
+                utmContent: "utmContentGroup",
+                utmTerm: "utmTermGroup",
+                utmSourcePlatform: "utmSourcePlatformGroup"
+            };
+
+            if (selectedChannel) {
+                const data = options[selectedChannel];
+
+                fields.forEach(field => {
+                    const fieldConfig = data[field];
+                    const fieldGroup = document.getElementById(fieldGroups[field]);
+                    const fieldInput = document.getElementById(field);
+
+                    if (fieldConfig.mode === "disabled") {
+                        fieldGroup.classList.add("hidden");
+                    } else {
+                        fieldGroup.classList.remove("hidden");
+                        fieldInput.value = fieldConfig.value;
+                        fieldInput.readOnly = fieldConfig.mode === "lock";
+                    }
+                });
+            }
+        }
+
+        function generateURL() {
+            // Get the user inputs
+            const baseURL = document.getElementById('baseURL').value;
+            const utmSource = document.getElementById('utmSource').value;
+            const utmMedium = document.getElementById('utmMedium').value;
+            const utmCampaign = document.getElementById('utmCampaign').value;
+            const utmTerm = document.getElementById('utmTerm').value;
+            const utmContent = document.getElementById('utmContent').value;
+            const utmSourcePlatform = document.getElementById('utmSourcePlatform').value;
+
+            // Construct the UTM parameters
+            let utmParams = [];
+            if (utmSource) utmParams.push(`utm_source=${encodeURIComponent(utmSource)}`);
+            if (utmMedium) utmParams.push(`utm_medium=${encodeURIComponent(utmMedium)}`);
+            if (utmCampaign) utmParams.push(`utm_campaign=${encodeURIComponent(utmCampaign)}`);
+            if (utmTerm) utmParams.push(`utm_term=${encodeURIComponent(utmTerm)}`);
+            if (utmContent) utmParams.push(`utm_content=${encodeURIComponent(utmContent)}`);
+            if (utmSourcePlatform) utmParams.push(`utm_source_platform=${encodeURIComponent(utmSourcePlatform)}`);
+
+            // Combine the base URL with the UTM parameters
+            const separator = baseURL.includes('?') ? '&' : '?';
+            const finalURL = `${baseURL}${separator}${utmParams.join('&')}`;
+
+            // Display the generated URL
+            document.getElementById('generatedURL').textContent = finalURL;
+        }
+
+        function copyToClipboard() {
+            const generatedURL = document.getElementById('generatedURL').textContent;
+            if (generatedURL) {
+                navigator.clipboard.writeText(generatedURL).then(() => {
+                    alert('URL copied to clipboard!');
+                }).catch(err => {
+                    alert('Failed to copy URL: ', err);
+                });
+            } else {
+                alert('No URL to copy!');
+            }
+        }
+    </script>
+</body>
+</html>

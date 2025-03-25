@@ -1,23 +1,27 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://louisbel.github.io/notes/'
+relativeURLs = false
 languageCode = 'en-us'
 title = 'Louis Belpaire'
-theme = 'typo'
+theme = 'Typo'
 
 # Disable tags, actually, they are rendered as a list, but the idea is to disable them.
 disableKinds = ['taxonomy']
 
 # Google analytics code
-googleAnalytics = "G-xxxxxxxxxx"
+googleAnalytics = "G-F2FPL4RJD1"
 
 [params]
 # Appearance
 theme = 'auto'
 
+pygmentsUseClasses = true
+pygmentsCodefences = true
+   
 # Intro on main page, content in markdown, if you omit title or content the other can be displayed
 homeIntroTitle = 'Hi!'
 homeIntroContent = """
-Welcome to my notebook where I explore the ever-evolving landscape of tech & digital marketing, 
-fueled by curiosity and coffee beans. All opinions are my own.
+Welcome to my research lab where I explore the ever-evolving landscape of tech & digital marketing, 
+fueled by curiosity and coffee beans ☕. All opinions are my own.
 """
 
 # Collection to display on home page: 
@@ -40,15 +44,15 @@ url = "https://www.linkedin.com/in/belpaire/"
 # Main menu pages
 [[params.menu]]
 name = "home"
-url = "/"
+url = "/notes"
 
 [[params.menu]]
 name = "posts"
-url = "/posts"
+url = "/notes/posts"
 
 [[params.menu]]
 name = "resume"
-url = "/resume"
+url = "/notes/resume"
 
 # giscus conf, for more detail, see https://giscus.app/
 [params.giscus]
@@ -60,17 +64,11 @@ url = "/resume"
   mapping = "pathname"
   theme = "light"
 
-# Syntax highlight on code blocks, all styles: 
-# https://xyproto.github.io/splash/docs/all.html
-# I suggest algol
+# Syntax highligth on code blocks
 [markup]
 [markup.highlight]
-style = 'algol'
+style = 'rainbow_dash'
 
 [[module.mounts]]
 source = 'static'
 target = 'static'
-
-[[module.mounts]]
-source = 'images'
-target = 'static/images'

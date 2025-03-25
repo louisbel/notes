@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/notes/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=notes/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Exploring Media Mix Modeling with Robyn and GPT-4o | Louis Belpaire</title>
+
+
+<link rel="stylesheet" href="/notes/assets/combined.min.0ad6409981219329fd7098dd52659674a36c4518c21ee24e28cf0a7f3327c5cc.css" media="all">
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Louis Belpaire</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/notes">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/posts">
+                /posts
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/resume">
+                /resume
+            </a>
+        </p>
+        
+        
+    </div>
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+<div >
+
+  <div class=" single-intro-container">
+
+    
+
+    <h1 class="single-title">Exploring Media Mix Modeling with Robyn and GPT-4o</h1>
+    
+    <p class="single-summary">Can GPT assist with Media Mix modeling in R?</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2024-05-28T00:00:00&#43;00:00">May 28, 2024</time>
+      
+
+      
+      -
+      7 min
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>Code and statistical analysis are often integral to a marketer&rsquo;s work. Many of us tinker with JavaScript, updating variables in Google Ads scripts, debugging Analytics implementations, examining source code, and manipulating large datasets for reporting.</p>
+<p>However, most of us, myself included, are not developers or statisticians. When OpenAI released GPT-4o earlier this month, I was impressed by the positive debugging feedback on Reddit and wondered if it could help bridge the technical gap needed to implement <strong><a href="https://facebookexperimental.github.io/Robyn/">Robyn</a>, Meta’s open-source package for Media Mix Modeling</strong>. Although Robyn had been on my radar for a couple of years, the setup instructions always seemed daunting.</p>
+<h2 id="why-media-mix-modeling">Why Media Mix Modeling?</h2>
+<p>HBR has an insightful article on the importance of calculating channel contributions to ROI.</p>
+<blockquote>
+<p><em>&quot;(MMMs) have a specific advantage: They’re able to produce dependable measurements — and insight — purely from natural variation in aggregate data, and don’t require user-level data.&quot;</em> - <a href="https://hbr.org/2023/03/a-new-gold-standard-for-digital-ad-measurement">A New Gold Standard for Digital Ad Measurement?</a> by Julian Runge, Harpreet Patter, and Igor Skokan</p></blockquote>
+<hr>
+<h2 id="building-the-dataset-for-robyn">Building the Dataset for Robyn</h2>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_Dataset2.gif">
+</figure></p>
+<p>For the sake of this experiment<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, I built an hypothetical dataset (2011 to 2013) for clothing brand Lululemon using some publicly available data:</p>
+<ul>
+<li>Annual US revenue &amp; global marketing expenses from <strong><a href="https://corporate.lululemon.com/investors/financial-information/annual-reports">the company&rsquo;s 10K-filings</a></strong></li>
+<li>The <strong><a href="https://www.census.gov/retail/marts/www/adv44800.txt">Retail Seasonality Index</a></strong> from Census.gov to allocate revenue based on weekly seasonality in the retail industry</li>
+<li>Direct to consumer revenue = 45% of total revenue (disclosed in the 2022 annual report)</li>
+</ul>
+<p>And multiple assumptions:</p>
+<ul>
+<li>Lululemon&rsquo;s share of US marketing expenses is proportional to the share of US revenue on global revenue (85% in 2021, 79% in 2023)</li>
+<li>Its media costs account for 70% of total marketing expenses (176M in 2021, 239M in 2023)</li>
+<li>The company&rsquo;s media mix is split between Meta (25%), Google (24%),  TV (17%), OOH (13%), TikTok (11%), Print (7%), Pinterest (3%) and Email</li>
+<li>Ad inventory cost averages have trended similarly to monthly global channel benchmarks</li>
+<li>The company has 9 important sales each year (ie. end of season sales and Cyber Monday)</li>
+</ul>
+<p>The Robyn guidelines recommend segmenting the largest media channels to further expose the performance of the underlying tactics. I split the Google and Meta spend between prospecting and retargeting budgets. I then introduced some noise in the weekly data by randomizing media spend and performance metrics within a +1% to -1% range for each weekly value.</p>
+<hr>
+<h2 id="how-gpt-4o-helped-me-bridge-the-gap">How GPT-4o helped me bridge the gap</h2>
+<p>Throughout the experiment, I encountered several issues where GPT-4o was a helpful companion.</p>
+<h3 id="debugging-errors-when-installing-the-robyn-package">Debugging errors when installing the Robyn package</h3>
+<p>Robyn runs in R and requires additional resources to be installed such as <a href="https://facebookresearch.github.io/nevergrad/">Nevergrad</a>, an open-source Python library. When trying to install this resource, I got an error where an important dependency &ldquo;cmake&rdquo; was not installed on my computer, therefore Nevergrad could not be installed.</p>
+<p>GPT guided me through the multiple steps to remediate the issue, including installing cmake.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>Lou<span style="color:#2c5dcd">@</span>LB1 <span style="color:#2c5dcd">~</span> % brew install cmake
+</span></span></code></pre></div><h3 id="getting-feedback-on-running--calibrating-the-model">Getting feedback on running &amp; calibrating the model</h3>
+<p>The complete set of instructions is available within the official Robyn demo file on <a href="https://github.com/facebookexperimental/Robyn/blob/main/demo/demo.R">Github</a>.</p>
+<p><strong>Step 1: Collecting all the inputs</strong></p>
+<p>This step is about feeding the context of the model to Robyn. GPT was helpful to validate the InputCollect function and contextualize any errors that appeared in the R console, mostly due to formatting discrepencies between my naming conventions for channels.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>InputCollect <span style="color:#2c5dcd">&lt;-</span> <span style="color:#ff8000;font-weight:bold">robyn_inputs</span>(
+</span></span><span style="display:flex;"><span>  dt_input <span style="color:#2c5dcd">=</span> lululemon_v16,
+</span></span><span style="display:flex;"><span>  dt_holidays <span style="color:#2c5dcd">=</span> dt_prophet_holidays,
+</span></span><span style="display:flex;"><span>  date_var <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;DATE&#34;</span>, <span style="color:#0080ff;font-style:italic"># date format must be &#34;2020-01-01&#34;</span>
+</span></span><span style="display:flex;"><span>  dep_var <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;revenue&#34;</span>, <span style="color:#0080ff;font-style:italic"># there should be only one dependent variable</span>
+</span></span><span style="display:flex;"><span>  dep_var_type <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;revenue&#34;</span>, <span style="color:#0080ff;font-style:italic"># &#34;revenue&#34; (ROI) or &#34;conversion&#34; (CPA)</span>
+</span></span><span style="display:flex;"><span>  prophet_vars <span style="color:#2c5dcd">=</span> <span style="color:#ff8000;font-weight:bold">c</span>(<span style="color:#0c6">&#34;trend&#34;</span>, <span style="color:#0c6">&#34;season&#34;</span>, <span style="color:#0c6">&#34;holiday&#34;</span>), <span style="color:#0080ff;font-style:italic"># &#34;trend&#34;,&#34;season&#34;, &#34;weekday&#34; &amp; &#34;holiday&#34;</span>
+</span></span><span style="display:flex;"><span>  prophet_country <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;US&#34;</span>, <span style="color:#0080ff;font-style:italic"># input country code. Check: dt_prophet_holidays</span>
+</span></span><span style="display:flex;"><span>  context_vars <span style="color:#2c5dcd">=</span> <span style="color:#ff8000;font-weight:bold">c</span>(<span style="color:#0c6">&#34;competitor_sales_B&#34;</span>, <span style="color:#0c6">&#34;events&#34;</span>), <span style="color:#0080ff;font-style:italic"># e.g. competitors, discount, unemployment etc</span>
+</span></span><span style="display:flex;"><span>  paid_media_spends <span style="color:#2c5dcd">=</span> <span style="color:#ff8000;font-weight:bold">c</span>(<span style="color:#0c6">&#34;tv_S&#34;</span>,<span style="color:#0c6">&#34;ooh_S&#34;</span>,<span style="color:#0c6">&#34;print_S&#34;</span>,<span style="color:#0c6">&#34;facebook_S_P&#34;</span>,<span style="color:#0c6">&#34;facebook_S_R&#34;</span>,<span style="color:#0c6">&#34;search_S_P&#34;</span>,<span style="color:#0c6">&#34;search_S_R&#34;</span>,<span style="color:#0c6">&#34;TikTok_S&#34;</span>,<span style="color:#0c6">&#34;Pinterest_S&#34;</span>), <span style="color:#0080ff;font-style:italic"># mandatory input</span>
+</span></span><span style="display:flex;"><span>  paid_media_vars <span style="color:#2c5dcd">=</span> <span style="color:#ff8000;font-weight:bold">c</span>(<span style="color:#0c6">&#34;tv_S&#34;</span>,<span style="color:#0c6">&#34;ooh_S&#34;</span>,<span style="color:#0c6">&#34;print_S&#34;</span>,<span style="color:#0c6">&#34;facebook_I_P&#34;</span>,<span style="color:#0c6">&#34;facebook_I_R&#34;</span>, <span style="color:#0c6">&#34;search_C_P&#34;</span>,<span style="color:#0c6">&#34;search_C_R&#34;</span>,<span style="color:#0c6">&#34;TikTok_I&#34;</span>,<span style="color:#0c6">&#34;Pinterest_I&#34;</span>), <span style="color:#0080ff;font-style:italic"># mandatory.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># paid_media_vars must have same order as paid_media_spends. Use media exposure metrics like</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># impressions, GRP etc. If not applicable, use spend instead.</span>
+</span></span><span style="display:flex;"><span>  organic_vars <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;newsletter&#34;</span>, <span style="color:#0080ff;font-style:italic"># marketing activity without media spend</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># factor_vars = c(&#34;events&#34;), # force variables in context_vars or organic_vars to be categorical</span>
+</span></span><span style="display:flex;"><span>  window_start <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;2021-01-04&#34;</span>,
+</span></span><span style="display:flex;"><span>  window_end <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;2023-12-25&#34;</span>,
+</span></span><span style="display:flex;"><span>  adstock <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;geometric&#34;</span> <span style="color:#0080ff;font-style:italic"># geometric, weibull_cdf or weibull_pdf.</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff8000;font-weight:bold">print</span>(InputCollect)
+</span></span></code></pre></div><p><strong>Step 2: Setting the hyperparameters</strong></p>
+<p>This is where we set the <em>Adstock</em> (the carryover effect from marketing) and the <em>Saturation</em> (the diminishing returns of marketing) with the 3 hyperparameters. Robyn recommends setting greater decay for digital than offline channels. I used the default values from the demo file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#ff8000;font-weight:bold">hyper_names</span>(adstock <span style="color:#2c5dcd">=</span> InputCollect<span style="color:#2c5dcd">$</span>adstock, all_media <span style="color:#2c5dcd">=</span> InputCollect<span style="color:#2c5dcd">$</span>all_media)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hyperparameters <span style="color:#2c5dcd">&lt;-</span> <span style="color:#ff8000;font-weight:bold">list</span>(
+</span></span><span style="display:flex;"><span>  facebook_S_P_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  facebook_S_P_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  facebook_S_P_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0</span>, <span style="color:#5918bb;font-weight:bold">0.3</span>),
+</span></span><span style="display:flex;"><span>  facebook_S_R_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  facebook_S_R_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  facebook_S_R_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0</span>, <span style="color:#5918bb;font-weight:bold">0.3</span>),
+</span></span><span style="display:flex;"><span>  newsletter_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  newsletter_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  newsletter_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.1</span>, <span style="color:#5918bb;font-weight:bold">0.4</span>),
+</span></span><span style="display:flex;"><span>  ooh_S_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  ooh_S_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  ooh_S_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.1</span>, <span style="color:#5918bb;font-weight:bold">0.4</span>),
+</span></span><span style="display:flex;"><span>  Pinterest_S_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  Pinterest_S_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  Pinterest_S_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0</span>, <span style="color:#5918bb;font-weight:bold">0.3</span>),
+</span></span><span style="display:flex;"><span>  print_S_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  print_S_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  print_S_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.1</span>, <span style="color:#5918bb;font-weight:bold">0.4</span>),
+</span></span><span style="display:flex;"><span>  search_S_P_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  search_S_P_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  search_S_P_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0</span>, <span style="color:#5918bb;font-weight:bold">0.3</span>),
+</span></span><span style="display:flex;"><span>  search_S_R_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  search_S_R_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  search_S_R_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0</span>, <span style="color:#5918bb;font-weight:bold">0.3</span>),
+</span></span><span style="display:flex;"><span>  TikTok_S_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  TikTok_S_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  TikTok_S_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0</span>, <span style="color:#5918bb;font-weight:bold">0.3</span>),
+</span></span><span style="display:flex;"><span>  tv_S_alphas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">3</span>),
+</span></span><span style="display:flex;"><span>  tv_S_gammas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">1</span>),
+</span></span><span style="display:flex;"><span>  tv_S_thetas <span style="color:#2c5dcd">=</span><span style="color:#ff8000;font-weight:bold">c </span>(<span style="color:#5918bb;font-weight:bold">0.3</span>, <span style="color:#5918bb;font-weight:bold">0.8</span>),
+</span></span><span style="display:flex;"><span>  train_size <span style="color:#2c5dcd">=</span> <span style="color:#ff8000;font-weight:bold">c</span>(<span style="color:#5918bb;font-weight:bold">0.5</span>, <span style="color:#5918bb;font-weight:bold">0.8</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>GPT helped contextualize the distribution of the parameters.</p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_hypersampling-GPT1.png">
+</figure><br>
+
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_hypersampling-GPT2.png">
+</figure></p>
+<p><strong>Step 3: Running all trials</strong></p>
+<p>This is where Robyn runs multiple trials to see how well different combinations of media mix affect the revenue outcome.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>OutputModels <span style="color:#2c5dcd">&lt;-</span> <span style="color:#ff8000;font-weight:bold">robyn_run</span>(
+</span></span><span style="display:flex;"><span>  InputCollect <span style="color:#2c5dcd">=</span> InputCollect, <span style="color:#0080ff;font-style:italic"># feed in all model specification</span>
+</span></span><span style="display:flex;"><span>  cores <span style="color:#2c5dcd">=</span> <span style="color:#2c5dcd;font-weight:bold">NULL</span>, <span style="color:#0080ff;font-style:italic"># NULL defaults to (max available - 1)</span>
+</span></span><span style="display:flex;"><span>  iterations <span style="color:#2c5dcd">=</span> <span style="color:#5918bb;font-weight:bold">2000</span>, <span style="color:#0080ff;font-style:italic"># 2000 recommended for the dummy dataset with no calibration</span>
+</span></span><span style="display:flex;"><span>  trials <span style="color:#2c5dcd">=</span> <span style="color:#5918bb;font-weight:bold">5</span>, <span style="color:#0080ff;font-style:italic"># 5 recommended for the dummy dataset</span>
+</span></span><span style="display:flex;"><span>  ts_validation <span style="color:#2c5dcd">=</span> <span style="color:#2c5dcd;font-weight:bold">TRUE</span>, <span style="color:#0080ff;font-style:italic"># 3-way-split time series for NRMSE validation.</span>
+</span></span><span style="display:flex;"><span>  add_penalty_factor <span style="color:#2c5dcd">=</span> <span style="color:#2c5dcd;font-weight:bold">FALSE</span> <span style="color:#0080ff;font-style:italic"># Experimental feature. Use with caution.</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff8000;font-weight:bold">print</span>(OutputModels)
+</span></span></code></pre></div><p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_R.gif">
+</figure></p>
+<p><strong>Step 4: Calculating Pareto Fronts</strong></p>
+<p>Robyn then dentifies the optimal trade-offs among different objectives (e.g., ROI vs. cost) using Pareto efficiency.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>OutputCollect <span style="color:#2c5dcd">&lt;-</span> <span style="color:#ff8000;font-weight:bold">robyn_outputs</span>(
+</span></span><span style="display:flex;"><span>  InputCollect, OutputModels,
+</span></span><span style="display:flex;"><span>  pareto_fronts <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;auto&#34;</span>, <span style="color:#0080ff;font-style:italic"># automatically pick how many pareto-fronts to fill min_candidates (100)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># min_candidates = 100, # top pareto models for clustering. Default to 100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># calibration_constraint = 0.1, # range c(0.01, 0.1) &amp; default at 0.1</span>
+</span></span><span style="display:flex;"><span>  csv_out <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;pareto&#34;</span>, <span style="color:#0080ff;font-style:italic"># &#34;pareto&#34;, &#34;all&#34;, or NULL (for none)</span>
+</span></span><span style="display:flex;"><span>  clusters <span style="color:#2c5dcd">=</span> <span style="color:#2c5dcd;font-weight:bold">TRUE</span>, <span style="color:#0080ff;font-style:italic"># Set to TRUE to cluster similar models by ROAS. See ?robyn_clusters</span>
+</span></span><span style="display:flex;"><span>  export <span style="color:#2c5dcd">=</span> create_files, <span style="color:#0080ff;font-style:italic"># this will create files locally</span>
+</span></span><span style="display:flex;"><span>  plot_folder <span style="color:#2c5dcd">=</span> robyn_directory, <span style="color:#0080ff;font-style:italic"># path for plots exports and files creation</span>
+</span></span><span style="display:flex;"><span>  plot_pareto <span style="color:#2c5dcd">=</span> create_files <span style="color:#0080ff;font-style:italic"># Set to FALSE to deactivate plotting and saving model one-pagers</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff8000;font-weight:bold">print</span>(OutputCollect)
+</span></span></code></pre></div><p>After this step, Robyn shows the contribution of each channel to overall revenue and the estimated ROAS. Some channels have a greater contribution to revenue (Effect Share) for their budget (Spend Share). In this case TikTok (7.28 ROAS) and prospecing campaigns on Search (7.04 ROAS) are most efficient.</p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_ROAS.png">
+</figure></p>
+<p><strong>Step 5: Re-allocating the budgets</strong></p>
+<p>Here we select a specific model and have Robyn generate new budgets for each channels. We&rsquo;re able to set constraints such as the maximum budget available and how much we allow a channel spend to flucutate. In this case no less than 70% of the current budget but no more than 210%.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>select_model <span style="color:#2c5dcd">&lt;-</span> <span style="color:#0c6">&#34;1_230_2&#34;</span>
+</span></span><span style="display:flex;"><span>ExportedModel <span style="color:#2c5dcd">&lt;-</span> <span style="color:#ff8000;font-weight:bold">robyn_write</span>(InputCollect, OutputCollect, select_model, export <span style="color:#2c5dcd">=</span> create_files)
+</span></span><span style="display:flex;"><span><span style="color:#ff8000;font-weight:bold">print</span>(ExportedModel)
+</span></span><span style="display:flex;"><span>InputCollect<span style="color:#2c5dcd">$</span>paid_media_spends
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>AllocatorCollect1 <span style="color:#2c5dcd">&lt;-</span> <span style="color:#ff8000;font-weight:bold">robyn_allocator</span>(
+</span></span><span style="display:flex;"><span>  InputCollect <span style="color:#2c5dcd">=</span> InputCollect,
+</span></span><span style="display:flex;"><span>  OutputCollect <span style="color:#2c5dcd">=</span> OutputCollect,
+</span></span><span style="display:flex;"><span>  select_model <span style="color:#2c5dcd">=</span> select_model,
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># date_range = &#34;all&#34;, # Default to &#34;all&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># total_budget = NULL, # When NULL, default is total spend in date_range</span>
+</span></span><span style="display:flex;"><span>  channel_constr_low <span style="color:#2c5dcd">=</span> <span style="color:#5918bb;font-weight:bold">0.7</span>,
+</span></span><span style="display:flex;"><span>  channel_constr_up <span style="color:#2c5dcd">=</span> <span style="color:#5918bb;font-weight:bold">2.1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#0080ff;font-style:italic"># channel_constr_multiplier = 3,</span>
+</span></span><span style="display:flex;"><span>  scenario <span style="color:#2c5dcd">=</span> <span style="color:#0c6">&#34;max_response&#34;</span>,
+</span></span><span style="display:flex;"><span>  export <span style="color:#2c5dcd">=</span> create_files
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>The Robyn model shows that based on the hypothetical data, reallocating media spend from Pinterest, Meta&rsquo;s prospecting campaigns, OOH and TV towards Search and Print could increase revenue and that multiple channels are not yet saturated with their current budget.</p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_Response-Curve.png">
+</figure>
+
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/MMM_Budget-Allocation.png">
+</figure></p>
+<p>I found GPT particularly useful for debugging the R code when the error returned in the console lacked context for troubleshooting. It was also insightful with knowledge gaps around statistics and the interpretation of the output. This experiment was valuable for unpacking the components of building a a media mix model and gaining a better understanding of the requirements and limitations.</p>
+<p>Overall, Robyn is a very advanced package with many more features than demonstrated here. Media Mix Modeling is a long-term endeavor that requires thoughtful rounds of calibration, which are beyond the scope of this experiment.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>There is an open source package I haven&rsquo;t tested called SiMMMulator to help generate simulated data to plug into Marketing Mix Models (MMMs).&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    
+<script src="https://giscus.app/client.js"
+        data-repo=""
+        data-repo-id=""
+        data-category=""
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  </div>
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>

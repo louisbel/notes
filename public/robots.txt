@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /resume/
+
+Sitemap: https://louisbel.github.io/notes/sitemap.xml

@@ -2,38 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Louis Belpaire</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>http://localhost:1313/notes/posts/</link>
     <description>Recent content in Posts on Louis Belpaire</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/notes/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overlaying KPIs on Meta video ads</title>
+      <link>http://localhost:1313/notes/posts/overlaying-kpis-on-meta-video-ads/</link>
+      <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/posts/overlaying-kpis-on-meta-video-ads/</guid>
+      <description>Combining the power of Supermetrics with open source libraries to overlay KPIs on video frames</description>
+    </item>
+    <item>
+      <title>Exploring Media Mix Modeling with Robyn and GPT-4o</title>
+      <link>http://localhost:1313/notes/posts/lululemon-mmm-robyn/</link>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/posts/lululemon-mmm-robyn/</guid>
+      <description>Can GPT assist with Media Mix modeling in R?</description>
+    </item>
+    <item>
+      <title>Best practices for SAAS landing pages</title>
+      <link>http://localhost:1313/notes/posts/b2b-saas/</link>
+      <pubDate>Thu, 16 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/posts/b2b-saas/</guid>
+      <description>What should be on a top performing SAAS landing page?</description>
+    </item>
     <item>
       <title>Buying the dip</title>
-      <link>http://localhost:1313/posts/buying-the-dip/</link>
+      <link>http://localhost:1313/notes/posts/buying-the-dip/</link>
       <pubDate>Wed, 08 May 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/buying-the-dip/</guid>
+      <guid>http://localhost:1313/notes/posts/buying-the-dip/</guid>
       <description>When should marketers buy META or GOOG?</description>
     </item>
     <item>
       <title>CJR Report: How AI retools Journalism</title>
-      <link>http://localhost:1313/posts/ai-in-the-news/</link>
+      <link>http://localhost:1313/notes/posts/ai-in-the-news/</link>
       <pubDate>Thu, 07 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/ai-in-the-news/</guid>
+      <guid>http://localhost:1313/notes/posts/ai-in-the-news/</guid>
       <description>What can we learn from 134 interviews of news workers on the early impact of AI?</description>
     </item>
     <item>
+      <title>Best Books of 2023</title>
+      <link>http://localhost:1313/notes/posts/best-books-of-2023/</link>
+      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/posts/best-books-of-2023/</guid>
+      <description>Top 10 reads from this past year.</description>
+    </item>
+    <item>
       <title>Youtube blocks the ad blockers</title>
-      <link>http://localhost:1313/posts/youtube-ad-block/</link>
+      <link>http://localhost:1313/notes/posts/youtube-ad-block/</link>
       <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/youtube-ad-block/</guid>
+      <guid>http://localhost:1313/notes/posts/youtube-ad-block/</guid>
       <description>A play for ad revenue or Youtube subscribers?</description>
     </item>
     <item>
       <title>Covid impact on the DC commute</title>
-      <link>http://localhost:1313/posts/covid-impact-on-dc-commuting/</link>
+      <link>http://localhost:1313/notes/posts/covid-impact-on-dc-commuting/</link>
       <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/covid-impact-on-dc-commuting/</guid>
+      <guid>http://localhost:1313/notes/posts/covid-impact-on-dc-commuting/</guid>
       <description>Measuring the impact of Covid on remote work with Google Analytics</description>
     </item>
   </channel>
