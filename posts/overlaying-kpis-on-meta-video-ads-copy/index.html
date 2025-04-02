@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/notes/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=notes/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>AI image renaming with Ollam &amp; Llava | Louis Belpaire</title>
+
+
+<link rel="stylesheet" href="/notes/assets/combined.min.0ad6409981219329fd7098dd52659674a36c4518c21ee24e28cf0a7f3327c5cc.css" media="all">
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Louis Belpaire</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/notes">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/posts">
+                /posts
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/resume">
+                /resume
+            </a>
+        </p>
+        
+        
+    </div>
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+<div >
+
+  <div class=" single-intro-container">
+
+    
+
+    <h1 class="single-title">AI image renaming with Ollam &amp; Llava</h1>
+    
+    <p class="single-summary">Generating convenient image filenames at scale</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2025-04-01T00:00:00&#43;00:00">April 1, 2025</time>
+      
+
+      
+      -
+      3 min
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <h2 id="the-challenge-with-image-filenames">The Challenge with Image Filenames</h2>
+<p>The web version of OneDrive lacks a key feature that Google Drive offers: image previews within folders. This limitation makes it challenging to quickly locate visual assets when using Microsoft&rsquo;s cloud storage solution. Having to open each file individually to identify its contents can be incredibly time-consuming and inefficient.</p>
+<ul>
+<li><strong>A OneDrive web based folder:</strong></li>
+</ul>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/Llava1.png">
+</figure></p>
+<ul>
+<li><strong>A Google Drive web based folder:</strong></li>
+</ul>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/Llava2.png">
+</figure></p>
+<h2 id="ai-renamer">AI Renamer</h2>
+<p>To overcome this issue and make image file organization more intuitive, we can leverage an NPX package called AI Renamer. This tool acts as a delivery mechanism for JavaScript code that interfaces locally with Ollama and multimodal models such as Llava, enabling automatic, intelligent renaming of image files based on their content.</p>
+<p><a href="https://llava-vl.github.io/">Llava</a> is an end-to-end trained large multimodal model that combines a vision encoder with Vicuna to enable general-purpose visual and language understanding. It can &ldquo;see&rdquo; what&rsquo;s in an image and describe it in natural language.</p>
+<h2 id="setting-up-your-environment">Setting Up Your Environment</h2>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li><a href="https://ollama.com/">Ollama</a> - A local model runner</li>
+<li>Node.js (install via brew install node on macOS)</li>
+<li><a href="https://github.com/ozgrozer/ai-renamer">ai-renamer</a> - The NPX package</li>
+<li>Llava (run ollama pull llava:13b or ollama pull llava:34b)</li>
+<li>or Bakllava (run ollama pull bakllava)</li>
+</ul>
+<h2 id="testing-the-solution">Testing the Solution</h2>
+<p>For this experiment, I selected four diverse images:</p>
+<ul>
+<li>A picture of French cyclist Thibaut Pinot during his last Tour de France</li>
+<li>A picture of the Chateau de Chenonceau in the Loire Valley</li>
+<li>An AI generated of a work desk overlooking NYC (Flux a.1 Pro model)</li>
+<li>An AI generated of a family having a spring picnic in Central Park</li>
+</ul>
+<h2 id="running-the-model">Running the Model</h2>
+<p>To rename the files, I ran the NPX command with appropriate parameters pointing to my image folder and specifying the Ollama provider with the Llava model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#4d4d4d;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx ai-renamer /Users/lou/Desktop/Code/AIRenamer/PictureFolderExample --provider<span style="color:#2c5dcd">=</span>ollama --model<span style="color:#2c5dcd">=</span>llava:34b
+</span></span></code></pre></div><p>The result is a filelist that is much easier to interpret when quickly glancing at files in OneDrive.</p>
+<p>
+
+
+
+<figure   >
+    <img loading="lazy" alt="image" src=" /notes/images/Llava3.png">
+</figure></p>
+<h2 id="comparing-model-performance">Comparing Model Performance</h2>
+<p>Interestingly, the 34B parameters model from Llava didn&rsquo;t fair better than the 13B although both were overall more accurate than the bakllava model. For some reason bakllava ended up dating two images although there was no particular instruction to do so or no date provided in the Exiff data.</p>
+<h2 id="results">Results</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Filename</th>
+          <th>llava13b</th>
+          <th>llava34b</th>
+          <th>bakllava</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Image1</td>
+          <td>celebrating-cyclist-winner</td>
+          <td>cyclist-crossing</td>
+          <td>1974</td>
+      </tr>
+      <tr>
+          <td>Image2</td>
+          <td>versailles-castle</td>
+          <td>castlebridge</td>
+          <td>castle-by-water</td>
+      </tr>
+      <tr>
+          <td>Image3</td>
+          <td>workspace</td>
+          <td>modern-cityscape-office-desk</td>
+          <td>ny-other-3d-rendering</td>
+      </tr>
+      <tr>
+          <td>Image4</td>
+          <td>family-picnic</td>
+          <td>picnic-with-family</td>
+          <td>20160417</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="key-findings">Key Findings</h2>
+<ol>
+<li>
+<p>Surprisingly, the 34B parameter model from Llava didn&rsquo;t consistently outperform the 13B model, though both were generally more accurate than bakllava.</p>
+</li>
+<li>
+<p>Bakllava unexpectedly assigned dates to two images (1974 and 20160417) despite no explicit instruction to do so and no date information in the EXIF data.</p>
+</li>
+<li>
+<p>For practical purposes, the best filenames (marked with 🥇) were distributed across different models, suggesting that no single model is superior for all image types.</p>
+</li>
+<li>
+<p>The resulting filenames are significantly more descriptive and user-friendly, making it much easier to identify images when browsing through OneDrive folders.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Using AI Renamer with Ollama provides an elegant solution to OneDrive&rsquo;s image preview limitation. By generating descriptive filenames based on image content, the tool transforms cryptic camera-generated filenames (like DSC01234.jpg) into intuitive descriptors that immediately convey what each image contains.</p>
+<p>This approach not only enhances the usability of OneDrive but also demonstrates a practical application of multimodal AI models for everyday productivity challenges.</p>
+
+    
+<script src="https://giscus.app/client.js"
+        data-repo=""
+        data-repo-id=""
+        data-category=""
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  </div>
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>

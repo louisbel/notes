@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Louis Belpaire</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://louisbel.github.io/notes/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI-Driven image renaming with Ollama &amp; Llava</title>
+      <link>https://louisbel.github.io/notes/posts/ai-image-renaming/</link>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://louisbel.github.io/notes/posts/ai-image-renaming/</guid>
+      <description>Generating convenient image filenames at scale</description>
+    </item>
     <item>
       <title>Overlaying KPIs on Meta video ads</title>
       <link>https://louisbel.github.io/notes/posts/overlaying-kpis-on-meta-video-ads/</link>
