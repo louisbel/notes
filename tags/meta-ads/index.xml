@@ -2,18 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meta Ads on Louis Belpaire</title>
-    <link>https://louisbel.github.io/notes/tags/meta-ads/</link>
+    <link>https://louisbel.github.io/tags/meta-ads/</link>
     <description>Recent content in Meta Ads on Louis Belpaire</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 04 Feb 2026 10:31:00 -0500</lastBuildDate>
-    <atom:link href="https://louisbel.github.io/notes/tags/meta-ads/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2026 Louis Belpaire</copyright>
+    <lastBuildDate>Wed, 04 Feb 2026 10:31:00 -0500</lastBuildDate><atom:link href="https://louisbel.github.io/tags/meta-ads/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Automating Meta Creative Audits with Claude Code</title>
-      <link>https://louisbel.github.io/notes/posts/automating-meta-creative-audits-with-claude-code/</link>
+      <link>https://louisbel.github.io/posts/automating-meta-creative-audits-with-claude-code/</link>
       <pubDate>Wed, 04 Feb 2026 10:31:00 -0500</pubDate>
-      <guid>https://louisbel.github.io/notes/posts/automating-meta-creative-audits-with-claude-code/</guid>
+      
+      <guid>https://louisbel.github.io/posts/automating-meta-creative-audits-with-claude-code/</guid>
       <description>Building a competitor Creative Tracker with Claude Code</description>
+      
     </item>
+    
   </channel>
 </rss>

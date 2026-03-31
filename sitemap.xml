@@ -1,92 +1,73 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
-    <loc>https://louisbel.github.io/notes/</loc>
+    <loc>https://louisbel.github.io/</loc>
     <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/categories/ai/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/automating-meta-creative-audits-with-claude-code/</loc>
     <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/automating-meta-creative-audits-with-claude-code/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/</loc>
     <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/automation/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/claude-code/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/digital-marketing/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/categories/marketing-technology/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/meta-ads/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/python/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/best-books-of-2026/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/best-books-of-2026/</loc>
     <lastmod>2025-12-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/ai/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/ai-agents--winner-takes-all/</loc>
     <lastmod>2025-05-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/ai-agents--winner-takes-all/</loc>
-    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/categories/business/</loc>
-    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/marketing/</loc>
-    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/productivity/</loc>
-    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/tags/technology/</loc>
-    <lastmod>2025-05-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/ai-image-renaming/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/ai-image-renaming/</loc>
     <lastmod>2025-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/best-books-of-2024/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/best-books-of-2024/</loc>
     <lastmod>2024-12-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/overlaying-kpis-on-meta-video-ads/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/overlaying-kpis-on-meta-video-ads/</loc>
     <lastmod>2024-11-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/lululemon-mmm-robyn/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/lululemon-mmm-robyn/</loc>
     <lastmod>2024-05-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/b2b-saas/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/b2b-saas/</loc>
     <lastmod>2024-05-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/buying-the-dip/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/buying-the-dip/</loc>
     <lastmod>2024-05-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/ai-in-the-news/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/ai-in-the-news/</loc>
     <lastmod>2024-03-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/resume/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/resume/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/sports/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/sports/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/best-books-of-2023/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/best-books-of-2023/</loc>
     <lastmod>2023-12-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/youtube-ad-block/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/youtube-ad-block/</loc>
     <lastmod>2023-11-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/posts/covid-impact-on-dc-commuting/</loc>
+  </url>
+  <url>
+    <loc>https://louisbel.github.io/posts/covid-impact-on-dc-commuting/</loc>
     <lastmod>2020-03-16T00:00:00+00:00</lastmod>
   </url>
 </urlset>

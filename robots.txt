@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /resume/
 
-Sitemap: https://louisbel.github.io/notes/sitemap.xml
+Sitemap: https://louisbel.github.io/sitemap.xml
