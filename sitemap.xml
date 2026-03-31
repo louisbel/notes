@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://louisbel.github.io/notes/</loc>
+    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
+  </url><url>
     <loc>https://louisbel.github.io/notes/categories/ai/</loc>
     <lastmod>2026-02-04T10:31:00-05:00</lastmod>
   </url><url>
@@ -15,9 +18,6 @@
     <lastmod>2026-02-04T10:31:00-05:00</lastmod>
   </url><url>
     <loc>https://louisbel.github.io/notes/tags/digital-marketing/</loc>
-    <lastmod>2026-02-04T10:31:00-05:00</lastmod>
-  </url><url>
-    <loc>https://louisbel.github.io/notes/</loc>
     <lastmod>2026-02-04T10:31:00-05:00</lastmod>
   </url><url>
     <loc>https://louisbel.github.io/notes/categories/marketing-technology/</loc>
