@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Automating Meta Creative Audit with Claude Code | Louis Belpaire</title>
+
+
+<link rel="stylesheet" href="/notes/assets/combined.min.c0a9a13dbde0a303c58503017d9561bdafd0e94d344b9289f047a1dadd5a5831.css" media="all">
+
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2FPL4RJD1"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-F2FPL4RJD1');
+        }
+      </script>
+
+</head>
+
+
+
+
+
+
+
+<body class="auto">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+    <h1 class="header-title">Louis Belpaire</h1>
+
+    <div class="flex">
+        
+
+        
+        
+        <p class="small ">
+            <a href="/notes">
+                /home
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/posts">
+                /posts
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/resume">
+                /resume
+            </a>
+        </p>
+        
+        <p class="small ">
+            <a href="/notes/sports">
+                /Sports
+            </a>
+        </p>
+        
+        
+    </div>
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+<div >
+
+  <div class=" single-intro-container">
+
+    
+
+    <h1 class="single-title">Automating Meta Creative Audit with Claude Code</h1>
+    
+    <p class="single-summary">Building a competitor Creative Tracker with Claude Code</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2026-02-04T10:31:00-05:00">February 4, 2026</time>
+      
+
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>In the world of Meta Ads marketing, especially when you’re managing multiple brands, keeping a pulse on the competition usually feels like a chore. You spend hours clicking through the Facebook Ad Library, taking screenshots, and trying to remember if that one creative is actually new or just a recycled asset from a previous month.</p>
+<p>I used <strong>Claude Code</strong> to build a Python-based workflow that turns the chaos of the Ad Library into a structured, visual database. It is not just a scraper; it is a full analysis pipeline that handles everything from high-res image extraction to video &ldquo;hook&rdquo; analysis and word cloud generation.</p>
+<hr>
+<h2 id="the-problem-the-ad-library-short-term-memory">The Problem: The &ldquo;Ad Library&rdquo; Short Term Memory</h2>
+<p>The Facebook Ad Library is a goldmine, but it is built for transparency, not for scale. If you want to compare your brand&rsquo;s messaging against four different competitors, you are stuck with twenty browser tabs and a lot of manual scrolling.</p>
+<h2 id="the-solution-the-slipstream-workflow">The Solution: The &ldquo;Slipstream&rdquo; Workflow</h2>
+<p>I wanted a tool that could:</p>
+<ul>
+<li><strong>Track &ldquo;New&rdquo; vs. &ldquo;Existing&rdquo;:</strong> Identify exactly what has been launched since my last check.</li>
+<li><strong>Analyze Video Hooks:</strong> Automatically extract frames at 1-second intervals to see the &ldquo;hook&rdquo; (the first 3 seconds) without hitting play 50 times.</li>
+<li><strong>Visualize Messaging:</strong> Generate word clouds to see which keywords our competitors are bidding on most frequently.</li>
+<li><strong>Create Portable Reports:</strong> One single, self-contained HTML file with all images embedded.</li>
+</ul>
+<hr>
+<h2 id="how-it-works">How it Works</h2>
+<p>The workflow is broken down into three main scripts, triggered by a simple <code>urls.txt</code> configuration where you define your own brands and your competitors.</p>
+<h3 id="1-the-extraction-fetch_competitorspy">1. The Extraction (<code>fetch_competitors.py</code>)</h3>
+<p>Using <strong><a href="https://playwright.dev/docs/library">Playwright</a></strong>, the script navigates the Ad Library, handles the infinite scroll, and captures creative assets at a 3x device scale factor. This ensures that even the fine print in the ad copy is crystal clear.</p>
+<p>One of my favorite features is the <strong>Video Timeline</strong>. It does more than grab a thumbnail; it creates a horizontal strip of the video’s progression. Any frame within the first 3 seconds gets a <code>_HOOK</code> tag and a red border in the final report, making it immediately obvious how a competitor is trying to stop the thumb-scroll.</p>
+<h3 id="2-the-data-layer-ad_tracking_dbjson">2. The Data Layer (<code>ad_tracking_db.json</code>)</h3>
+<p>Every ad is hashed based on its body text and CTA. The script maintains a local JSON database that tracks the &ldquo;First Seen&rdquo; and &ldquo;Last Seen&rdquo; dates. When I run the report, it shows exactly how many new ads were detected in the latest run.</p>
+<h3 id="3-the-visuals-generate_report_htmlpy">3. The Visuals (<code>generate_report_html.py</code>)</h3>
+<p>The final output is a responsive HTML report. I designed it with a 75/25 split: the creative on the left and the copy on the right. Because all images are Base64-encoded, I can Slack or email the single <code>.html</code> file to a teammate. Everything—the word clouds, the collages, and the timelines—works perfectly without needing an &ldquo;assets&rdquo; folder.</p>
+<hr>
+<h2 id="leveling-up-with-ai">Leveling Up with AI</h2>
+<p>The real &ldquo;unlock&rdquo; happens once the data is gathered. I’ve started feeding the generated collages into Claude to get a high-level creative audit.</p>
+<p>Instead of me staring at 100 ads, I can ask:</p>
+<blockquote>
+<p>&ldquo;Looking at these three competitor collages, what are the primary emotional hooks they are using compared to our brand?&rdquo;</p></blockquote>
+<p>The AI can see the patterns in seconds, such as a competitor shifting from &ldquo;Product-focused&rdquo; to &ldquo;UGC-style&rdquo; content.</p>
+<h2 id="looking-ahead">Looking Ahead</h2>
+<p>This is currently running on a weekly cron job, giving me a fresh report every Monday morning. Future iterations might include automated alerts for new campaign launches or a platform breakdown (Instagram vs. Facebook).</p>
+<p>For now, it is just nice to have the data work for me, rather than the other way around.</p>
+
+    
+<script src="https://giscus.app/client.js"
+        data-repo=""
+        data-repo-id=""
+        data-category=""
+        data-category-id=""
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+  </div>
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    <p>Powered by
+    <a href="https://gohugo.io/">Hugo</a>
+    and
+    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+</p>
+
+
+  </footer>
+
+</body>
+
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    console
+    document.body.classList.remove("auto");
+    let cls = "light";
+
+    console.log
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+
+  }
+
+  function invert() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    console.log("Setting invert listener");
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invert);
+  }
+
+  setTheme();
+
+</script>
+
+
+</html>
