@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Mon, 05 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Where AI Actually Delivers in Marketing: A Q1 Roundup</title>
+      <link>https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/</guid>
+      <description>Where should marketers lean in and where should they be more careful?</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/featured.png" />
+    </item>
     
     <item>
       <title>AI Agents &amp; Marketing Productivity</title>
@@ -16,7 +26,7 @@
       
       <guid>https://louisbel.github.io/posts/ai-agents--winner-takes-all/</guid>
       <description>Will AI productivity gains be distributed equally across marketing teams?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-agents--winner-takes-all/featured.png" />
     </item>
     
   </channel>

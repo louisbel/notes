@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Wed, 04 Feb 2026 10:31:00 -0500</lastBuildDate><atom:link href="https://louisbel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Where AI Actually Delivers in Marketing: A Q1 Roundup</title>
+      <link>https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/</guid>
+      <description>Where should marketers lean in and where should they be more careful?</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/featured.png" />
+    </item>
     
     <item>
       <title>Automating Meta Creative Audits with Claude Code</title>
@@ -36,7 +46,7 @@
       
       <guid>https://louisbel.github.io/posts/ai-agents--winner-takes-all/</guid>
       <description>Will AI productivity gains be distributed equally across marketing teams?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-agents--winner-takes-all/featured.png" />
     </item>
     
     <item>
@@ -46,7 +56,7 @@
       
       <guid>https://louisbel.github.io/posts/ai-image-renaming/</guid>
       <description>Can a local LLM rename thousands of images without touching the cloud?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-image-renaming/featured.png" />
     </item>
     
     <item>
@@ -66,7 +76,7 @@
       
       <guid>https://louisbel.github.io/posts/overlaying-kpis-on-meta-video-ads/</guid>
       <description>What if your KPIs were burned directly into your Meta video ads?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/overlaying-kpis-on-meta-video-ads/featured.png" />
     </item>
     
     <item>
@@ -76,7 +86,7 @@
       
       <guid>https://louisbel.github.io/posts/lululemon-mmm-robyn/</guid>
       <description>Can GPT assist with Media Mix modeling in R?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/lululemon-mmm-robyn/featured.png" />
     </item>
     
     <item>
@@ -86,7 +96,7 @@
       
       <guid>https://louisbel.github.io/posts/b2b-saas/</guid>
       <description>What should be on a top performing SAAS landing page?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/b2b-saas/featured.png" />
     </item>
     
     <item>
@@ -96,7 +106,7 @@
       
       <guid>https://louisbel.github.io/posts/buying-the-dip/</guid>
       <description>When should marketers buy META or GOOG?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/buying-the-dip/featured.png" />
     </item>
     
     <item>
@@ -106,7 +116,7 @@
       
       <guid>https://louisbel.github.io/posts/ai-in-the-news/</guid>
       <description>What can we learn from 134 interviews of news workers on the early impact of AI?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-in-the-news/featured.png" />
     </item>
     
     <item>
@@ -126,7 +136,7 @@
       
       <guid>https://louisbel.github.io/posts/youtube-ad-block/</guid>
       <description>A play for ad revenue or Youtube subscribers?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/youtube-ad-block/featured.png" />
     </item>
     
     <item>
@@ -136,7 +146,7 @@
       
       <guid>https://louisbel.github.io/posts/covid-impact-on-dc-commuting/</guid>
       <description>What did Covid actually do to DC commuting patterns?</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/covid-impact-on-dc-commuting/featured.png" />
     </item>
     
   </channel>
