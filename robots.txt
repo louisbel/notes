@@ -1,4 +1,39 @@
+# Explicit AI crawler allowlist
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: AppleBot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Default policy
 User-agent: *
 Disallow: /resume/
+
+# Content Signals — declare preferences for AI usage
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 Sitemap: https://louisbel.github.io/sitemap.xml

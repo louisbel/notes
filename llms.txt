@@ -1,0 +1,31 @@
+# Louis Belpaire
+
+> Personal blog by Louis Belpaire on AI, marketing, and data from a practitioner's perspective. Performance marketer specializing in AI-driven automation across Paid Media, Creative, and Analytics. Posts cover generative AI evaluation, AI agents, marketing automation, and analytics workflows.
+
+## About
+
+- [About Louis Belpaire](https://louisbel.github.io/resume/): Resume, work history, and contact details.
+- [Sports](https://louisbel.github.io/sports/): Ironman and endurance sports race log.
+
+## Posts
+
+- [Gen AI for product creative: a field test](https://louisbel.github.io/posts/gen-ai-for-product-creative-a-field-test/): When you turn the creative difficulty up, where does each Gen AI model break first?
+- [Where AI Actually Delivers in Marketing: A Q1 Roundup](https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/): Where should marketers lean in and where should they be more careful?
+- [Automating Meta Creative Audits with Claude Code](https://louisbel.github.io/posts/automating-meta-creative-audits-with-claude-code/): What if Claude Code could audit your competitors' Meta creatives automatically?
+- [Favorite Books of 2025](https://louisbel.github.io/posts/best-books-of-2025/): Top reads from 2025.
+- [AI Agents & Marketing Productivity](https://louisbel.github.io/posts/ai-agents--winner-takes-all/): Will AI productivity gains be distributed equally across marketing teams?
+- [Renaming Images at Scale with Local LLMs](https://louisbel.github.io/posts/ai-image-renaming/): Can a local LLM rename thousands of images without touching the cloud?
+- [Favorite Books of 2024](https://louisbel.github.io/posts/best-books-of-2024/): Top reads from 2024.
+- [Overlaying KPIs on Meta video ads](https://louisbel.github.io/posts/overlaying-kpis-on-meta-video-ads/): What if your KPIs were burned directly into your Meta video ads?
+- [Exploring Media Mix Modeling with Robyn and GPT-4o](https://louisbel.github.io/posts/lululemon-mmm-robyn/): Can GPT assist with Media Mix modeling in R?
+- [Best practices for SAAS landing pages](https://louisbel.github.io/posts/b2b-saas/): What should be on a top performing SAAS landing page?
+- [Buying the dip](https://louisbel.github.io/posts/buying-the-dip/): When should marketers buy META or GOOG?
+- [CJR Report: How AI retools Journalism](https://louisbel.github.io/posts/ai-in-the-news/): What can we learn from 134 interviews of news workers on the early impact of AI?
+- [Favorite Books of 2023](https://louisbel.github.io/posts/best-books-of-2023/): Top reads from 2023.
+- [Youtube blocks the ad blockers](https://louisbel.github.io/posts/youtube-ad-block/): A play for ad revenue or Youtube subscribers?
+- [Covid impact on the DC commute](https://louisbel.github.io/posts/covid-impact-on-dc-commuting/): What did Covid actually do to DC commuting patterns?
+
+## Feeds
+
+- [RSS feed](https://louisbel.github.io/posts/index.xml): Full-text feed of all posts.
+- [Sitemap](https://louisbel.github.io/sitemap.xml): Machine-readable site map.
