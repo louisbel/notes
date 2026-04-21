@@ -7,14 +7,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AI</title>
       <link>https://louisbel.github.io/tags/ai/</link>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>https://louisbel.github.io/tags/ai/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Evaluation</title>
+      <link>https://louisbel.github.io/tags/evaluation/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/evaluation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Gen AI</title>
+      <link>https://louisbel.github.io/tags/gen-ai/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/gen-ai/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Image Generation</title>
+      <link>https://louisbel.github.io/tags/image-generation/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/image-generation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Video Generation</title>
+      <link>https://louisbel.github.io/tags/video-generation/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/video-generation/</guid>
       <description></description>
       
     </item>

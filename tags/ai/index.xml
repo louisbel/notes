@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Thu, 02 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gen AI for product creative: a field test</title>
+      <link>https://louisbel.github.io/posts/model-monday--stress-testing-19-gen-ai-models-on-one-bike/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/posts/model-monday--stress-testing-19-gen-ai-models-on-one-bike/</guid>
+      <description>When you turn the creative difficulty up, where does each Gen AI model break first?</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/model-monday--stress-testing-19-gen-ai-models-on-one-bike/featured.jpg" />
+    </item>
     
     <item>
       <title>Where AI Actually Delivers in Marketing: A Q1 Roundup</title>
