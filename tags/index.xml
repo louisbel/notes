@@ -7,14 +7,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AI</title>
       <link>https://louisbel.github.io/tags/ai/</link>
-      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
       
       <guid>https://louisbel.github.io/tags/ai/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ChatGPT Ads</title>
+      <link>https://louisbel.github.io/tags/chatgpt-ads/</link>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/chatgpt-ads/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Claude Code</title>
+      <link>https://louisbel.github.io/tags/claude-code/</link>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/claude-code/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Marketing</title>
+      <link>https://louisbel.github.io/tags/marketing/</link>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/marketing/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Paid Media</title>
+      <link>https://louisbel.github.io/tags/paid-media/</link>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/tags/paid-media/</guid>
       <description></description>
       
     </item>
@@ -60,16 +100,6 @@
     </item>
     
     <item>
-      <title>Marketing</title>
-      <link>https://louisbel.github.io/tags/marketing/</link>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
-      
-      <guid>https://louisbel.github.io/tags/marketing/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Productivity</title>
       <link>https://louisbel.github.io/tags/productivity/</link>
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
@@ -95,16 +125,6 @@
       <pubDate>Wed, 04 Feb 2026 10:31:00 -0500</pubDate>
       
       <guid>https://louisbel.github.io/tags/automation/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Claude Code</title>
-      <link>https://louisbel.github.io/tags/claude-code/</link>
-      <pubDate>Wed, 04 Feb 2026 10:31:00 -0500</pubDate>
-      
-      <guid>https://louisbel.github.io/tags/claude-code/</guid>
       <description></description>
       
     </item>

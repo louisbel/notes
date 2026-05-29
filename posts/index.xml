@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Tue, 21 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>I Raced Claude Code to Launch ChatGPT Ads</title>
+      <link>https://louisbel.github.io/posts/man-vs-machine-chatgpt-ads/</link>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/posts/man-vs-machine-chatgpt-ads/</guid>
+      <description>What happens when you race Claude Code against yourself to launch ads on a platform neither of you has used?</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/man-vs-machine-chatgpt-ads/featured.png" />
+    </item>
     
     <item>
       <title>Gen AI for product creative: a field test</title>
