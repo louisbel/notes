@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>5 Things I Learned About AI and the Future of Work</title>
+      <link>https://louisbel.github.io/posts/5-things-i-learned-about-ai-and-the-future-of-work/</link>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/posts/5-things-i-learned-about-ai-and-the-future-of-work/</guid>
+      <description>What stuck with me after two days shadowing an international gathering of experts on AI and the future of work?</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/5-things-i-learned-about-ai-and-the-future-of-work/featured.png" />
+    </item>
     
     <item>
       <title>I Raced Claude Code to Launch ChatGPT Ads</title>

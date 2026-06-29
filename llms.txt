@@ -9,6 +9,7 @@
 
 ## Posts
 
+- [5 Things I Learned About AI and the Future of Work](https://louisbel.github.io/posts/5-things-i-learned-about-ai-and-the-future-of-work/): What stuck with me after two days shadowing an international gathering of experts on AI and the future of work?
 - [I Raced Claude Code to Launch ChatGPT Ads](https://louisbel.github.io/posts/man-vs-machine-chatgpt-ads/): What happens when you race Claude Code against yourself to launch ads on a platform neither of you has used?
 - [Gen AI for product creative: a field test](https://louisbel.github.io/posts/gen-ai-for-product-creative-a-field-test/): When you turn the creative difficulty up, where does each Gen AI model break first?
 - [Where AI Actually Delivers in Marketing: A Q1 Roundup](https://louisbel.github.io/posts/ai-in-marketing-q1-roundup/): Where should marketers lean in and where should they be more careful?

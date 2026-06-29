@@ -7,14 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Fri, 29 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AI</title>
       <link>https://louisbel.github.io/categories/ai/</link>
-      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
       
       <guid>https://louisbel.github.io/categories/ai/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Business</title>
+      <link>https://louisbel.github.io/categories/business/</link>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://louisbel.github.io/categories/business/</guid>
       <description></description>
       
     </item>
@@ -35,16 +45,6 @@
       <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
       
       <guid>https://louisbel.github.io/categories/marketing-technology/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Business</title>
-      <link>https://louisbel.github.io/categories/business/</link>
-      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://louisbel.github.io/categories/business/</guid>
       <description></description>
       
     </item>

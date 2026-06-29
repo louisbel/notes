@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Business on Louis Belpaire</title>
-    <link>https://louisbel.github.io/categories/business/</link>
-    <description>Recent content in Business on Louis Belpaire</description>
+    <title>Future of Work on Louis Belpaire</title>
+    <link>https://louisbel.github.io/tags/future-of-work/</link>
+    <description>Recent content in Future of Work on Louis Belpaire</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2026 Louis Belpaire</copyright>
-    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://louisbel.github.io/tags/future-of-work/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>5 Things I Learned About AI and the Future of Work</title>
@@ -17,16 +17,6 @@
       <guid>https://louisbel.github.io/posts/5-things-i-learned-about-ai-and-the-future-of-work/</guid>
       <description>What stuck with me after two days shadowing an international gathering of experts on AI and the future of work?</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/5-things-i-learned-about-ai-and-the-future-of-work/featured.png" />
-    </item>
-    
-    <item>
-      <title>AI Agents &amp; Marketing Productivity</title>
-      <link>https://louisbel.github.io/posts/ai-agents--winner-takes-all/</link>
-      <pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://louisbel.github.io/posts/ai-agents--winner-takes-all/</guid>
-      <description>Will AI productivity gains be distributed equally across marketing teams?</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://louisbel.github.io/posts/ai-agents--winner-takes-all/featured.png" />
     </item>
     
   </channel>
